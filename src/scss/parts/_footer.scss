@@ -1,0 +1,38 @@
+footer{
+	padding: 20px;
+	background-color: $black;
+	.footer-column{
+		text-align: center;
+		width: 33%;
+		@media (max-width: px($smallBreakpoint)) {
+			width: 100%;
+			flex-direction: column;
+		}
+		img{
+			width: 120px;
+		}
+		p{
+			margin-bottom: 0;
+			font-size: 12px;
+			color: $white;
+			text-align: start;
+			@media (max-width: px($mediumBreakpoint)) {
+				text-align: center;
+			}
+		}
+	}
+	ul{
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+		@media (max-width: px($mediumBreakpoint)) {
+			justify-content: center;
+		}
+		li{
+			a{
+				color: $white;
+				font-size: 17px;
+			}
+		}
+	}
+}

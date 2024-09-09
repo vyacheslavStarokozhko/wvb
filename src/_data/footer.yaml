@@ -1,0 +1,7 @@
+footer_logo: /static/img/tom-logo-2023.webp
+footer_caption: © @year Tom Adams & Flourish Press Inc.  All Rights Reserved.
+footer_links:
+  - label: Privacy Policy
+    url: /privacy-terms/
+  - label: Credits
+    url: /credits/

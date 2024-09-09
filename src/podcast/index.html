@@ -1,0 +1,53 @@
+---
+layout: podcast
+pagination:
+    data: collections.podcast
+    size: 12
+    reverse: true
+    alias: podcast
+---
+
+
+<section class="container fdc">
+
+  {% set postslist = collections.podcast %}
+
+<div class="articles-container podcasts-container">
+    {% for post in pagination.items %}
+    <article class="article-item">
+        <a href="{{ post.url | url }}" class="article-item__thumbnail">
+            <img src="{{post.data.thumbnail}}" alt="thumbnail">
+        </a>
+        <div class="article-item__text article-text">
+            <h2 class="article-text__title">
+                <a href="{{ post.url | url }}">
+                    {{post.data.title}}
+                </a>
+            </h2>
+            <p class="article-text__meta">
+                {{post.date | readableDate}}
+            </p>
+            <a href="{{ post.url | url }}" class="article-text__link">
+                Listen Now
+            </a>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+
+
+    <ul class="pagination">
+        <li class="previous nav">
+            <a href="{{pagination.href.previous}}">Previous</a>
+        </li>
+        {% for pag in pagination.pages %}
+
+        <li
+            {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}
+        ><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+        {% endfor %}
+        <li class="next nav">
+            <a href="{{pagination.href.next}}">Next</a>
+        </li>
+    </ul>
+</section>

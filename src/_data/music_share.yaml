@@ -1,0 +1,11 @@
+share_links:
+  - icon: /static/img/apple-podcasts.png
+    url: https://podcasts.apple.com/us/podcast/the-shred-coach/id1618282233
+  - icon: /static/img/spotify.png
+    url: https://open.spotify.com/show/70xU5fWlCSufeKnriUtJkG
+  - icon: /static/img/google-podcasts.png
+    url: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy50cmFuc2lzdG9yLmZtL3RoZS1zaHJlZC1jb2FjaA
+  - icon: /static/img/amazon-music.png
+    url: https://music.amazon.com/podcasts/a44ae84c-9d90-4d77-9c29-e384da5cab00
+  - icon: /static/img/rss-feed-300x75.png
+    url: https://feeds.transistor.fm/the-shred-coach

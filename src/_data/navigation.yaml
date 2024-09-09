@@ -1,0 +1,15 @@
+items:
+  - text: Menu One
+    url: "#"
+  - text: Menu Two
+    url: "#"
+  - text: Menu Three
+    url: "#"
+  - text: Blog
+    url: /blog
+  - text: Home
+    url: /
+  - text: About
+    url: /about
+  - text: My Story
+    url: /my-story

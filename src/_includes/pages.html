@@ -1,0 +1,80 @@
+---
+layout: default
+prism: true
+---
+
+
+<div class="hero">
+    <div class="container align-center">
+        <div class="hero__description">
+            <div class="markdown">
+                {{caption | text}}
+            </div>
+        </div>
+        <div class="hero__image">
+            <img src="{{thumbnail}}" alt="Tom">
+        </div>
+    </div>
+</div>
+<div class="cta">
+    <div class="container page-cta fdc">
+        <div class="markdown">
+            {{description | text}}
+        </div>
+
+    </div>
+</div>
+<div class="main-content">
+    <div class="container fdc">
+        <div class="markdown">
+            {{page_body | text}}
+        </div>
+    </div>
+</div>
+
+
+{% if tabs %}
+<div class="page-accordion">
+    {% if tabs_label %}
+    <div class="page-accordion__label">
+        <div class="container jc-c">
+            <h2>
+                {{tabs_label}}
+            </h2>
+        </div>
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="accordion">
+            <ul class="accordion-labels">
+                {% for item in tabs %}
+                <li class="accordion-item">
+                    <button class="accordion-button" data-idx="{{loop.index}}">{{item.tab_label}}</button>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="accordion-contents">
+                {% for item in tabs %}
+                <div class="accordion-content" data-idx="{{loop.index}}">
+                    <div class="markdown">
+                        {{item.tab_description | text}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+<div class="bottom-banner">
+    <div class="container jc-c">
+        <div class="bottom-banner__text">
+            <div class="markdown">
+                {{bottom | text}}
+            </div>
+
+        </div>
+    </div>
+</div>

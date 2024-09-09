@@ -1,0 +1,38 @@
+.cta {
+	padding: 24px;
+	background-color: $black;
+@media (max-width: px($smallBreakpoint)) {
+	padding: 16px 0px;
+}
+	&__title {
+		//
+		@media (max-width: px($smallBreakpoint)) {
+			text-align: center;
+		}
+		h2 {
+			color: $white;
+		}
+	}
+
+	ul {
+		margin-top: 20px;
+		@media (max-width: px($mediumBreakpoint)) {
+			flex-wrap: wrap;
+		}
+	}
+
+	.page-cta {
+		text-align: center;
+		color: $white;
+		padding: 30px;
+
+		ul {
+
+		}
+
+		&:has(ul) {
+			padding: 0;
+			text-align: start;
+		}
+	}
+}

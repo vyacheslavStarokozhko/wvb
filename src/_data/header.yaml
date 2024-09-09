@@ -1,0 +1,54 @@
+header_logo: /static/img/tom-logo-2023.webp
+socials:
+  - url: https://www.youtube.com/@TomAdamsCoach
+    icon: fab fa-youtube
+  - url: https://www.linkedin.com/in/tomadamscoach/
+    icon: fab fa-linkedin
+  - url: https://twitter.com/TomAdams
+    icon: fab fa-tumblr-square
+  - icon: fab fa-facebook-square
+    url: https://www.facebook.com/tomadamscoach/
+header_links:
+  - label: About Me
+    url: "#"
+    second_links:
+      - label: My Story
+        url: /my-story/
+      - label: My Book
+        url: /executive-coach/
+        third_links:
+          - url: /executive-coach/
+            label: Executive Coach
+          - url: /executive-coach/
+            label: Executive Coach
+            fourth_links:
+              - label: Executive Coach
+                url: /executive-coach/
+              - label: Executive Coach
+                url: /executive-coach/
+      - label: Media and Guest Appearances
+        url: /media-guest/
+  - label: Work With Me
+    url: "#"
+    second_links:
+      - label: Executive Coach
+        url: /executive-coach/
+      - label: Thought Partner
+        url: /thought-partner/
+      - label: Meeting Facilitator
+        url: /meeting-facilitator/
+      - label: Advisory Board Services
+        url: /advisory-board-service-offerings/
+      - label: Keynote Speaker
+        url: /speaking/
+  - label: Contact Me
+    url: /contact-tom/
+    second_links:
+      - url: /speaking/
+        label: Speaking
+        third_links: []
+      - label: Speaking
+        url: /speaking/
+        third_links: []
+  - label: Podcasts
+    url: /podcast/

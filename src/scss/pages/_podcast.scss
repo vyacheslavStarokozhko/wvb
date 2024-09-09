@@ -1,0 +1,61 @@
+.podcast{
+	&-logo{
+		background-color: $black;
+		padding: 20px;
+		img{
+			width: 300px;
+		}
+	}
+	&-hero{
+		padding: 30px;
+		background-color: $containerColor;
+		h1,h4{
+			color: $white;
+		}
+	}
+	&-content{
+		padding-top: 30px;
+		padding-bottom: 30px;
+		.container{
+			gap: 40px;
+		}
+	}
+	&-main{
+		width: 66%;
+		video{
+			width: 100%;
+		}
+	}
+	&-form{
+		>a{
+			margin-bottom: 20px;
+		}
+		width: per($sidebarWidth);
+		text-align: center;
+		@media (max-width: px($mediumBreakpoint)) {
+			width: per(#{$sidebarWidth * 2});
+		}
+	}
+	&-audio{
+		margin-top: 50px;
+		border: 1px solid $black;
+		border-radius: 5px;
+		padding: 10px;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		img{
+			width: 150px;
+		}
+		.audio{
+			width: 100%;
+			audio{
+				width: 100%;
+				margin-top: 20px;
+			}
+		}
+	}
+	&-body{
+		margin-top: 20px;
+	}
+}

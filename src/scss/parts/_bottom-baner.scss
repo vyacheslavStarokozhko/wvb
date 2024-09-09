@@ -1,0 +1,59 @@
+.bottom-banner{
+	background-color: $warning;
+	padding: 50px;
+	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.4);
+	@media (max-width: px($smallBreakpoint)) {
+		padding: 10px;
+	}
+	&__text{
+		color: $body;
+		text-align: center;
+
+		>*{
+			color: $white;
+		}
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 100px;
+		@media (max-width: px($mediumBreakpoint)) {
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		&:has(a){
+			width: 100%;
+			justify-content: space-between;
+		}
+		a{
+			width: 100%;
+			border: 1px solid #000000;
+			background: $black;
+			border-radius: 4px;
+			display: inline-block;
+			font-size: 16px;
+			font-weight: normal;
+			line-height: 18px;
+			padding: 12px 24px;
+			text-decoration: none;
+			text-shadow: none;
+			color: $white;
+			&:hover{
+			    color: $black;
+				background-color: $link;
+			}
+		}
+		p{
+			margin-bottom: 0;
+		}
+		p:has(a){
+			width: 20%;
+			@media (max-width: px($mediumBreakpoint)) {
+				width: 50%;
+			}
+			@media (max-width: px($smallBreakpoint)) {
+				width: 75%;
+			}
+		}
+	}
+}

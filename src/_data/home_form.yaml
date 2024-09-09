@@ -1,0 +1,13 @@
+form_title: Want A Quick Update from Me?
+form_description: From engaging podcast episodes to new training videos and
+  thought-provoking insights, I'll send your way. Subscribe to my irregular
+  email newsletter that will only come when I have something worth sharing.
+form_logo: /static/img/download.svg
+form_url: https://convertkit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic
+form_links:
+  - label: Listen or Watch Now
+    url: https://tomadams.com/advisory-board-insider-podcast/
+    form_link_logo: /static/img/11-300x300.png
+  - label: Listen Now
+    url: https://tomadams.com/the-shred-coach-podcast/
+    form_link_logo: /static/img/shredcoachpodcastmain-768x768-1-300x300.png

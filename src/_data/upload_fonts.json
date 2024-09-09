@@ -1,0 +1,22 @@
+{
+  "_fonts": [
+    {
+      "font_url": "/static/img/acuminpro-light.woff2",
+      "font_label": "acum",
+      "font_style": "normal",
+      "font_weight": "300"
+    },
+    {
+      "font_url": "/static/img/acuminpro-bold.woff2",
+      "font_label": "acum",
+      "font_style": "normal",
+      "font_weight": "700"
+    },
+    {
+      "font_label": "sofia",
+      "font_style": "normal",
+      "font_weight": "400",
+      "font_url": "/static/img/sofia_pro_regular-webfont.woff2"
+    }
+  ]
+}

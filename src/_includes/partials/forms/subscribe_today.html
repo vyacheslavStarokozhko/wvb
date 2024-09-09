@@ -1,0 +1,55 @@
+
+
+
+
+
+
+
+<div class="markdown">
+    {{subscribe_today.caption | text}}
+</div>
+{% if subscribe_today.form_type == "default" %}
+<!--update-->
+<form name="{{subscribe_today.form_data}}" data-netlify="true" method="POST" class="form-wrapper__form form subscribe-form">
+    <input type="hidden" name="subject"
+           value="New Quote Request"/>
+
+    <p>
+        <label>Name</label>
+        <input type="text" name="name" required placeholder="First Name"/>
+    </p>
+    <p>
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="Email Address"/>
+    </p>
+    <p>
+        <button type="submit">Subscribe</button>
+    </p>
+    <p>
+        <small>
+            {{subscribe_today.sub_caption}}
+        </small>
+    </p>
+</form>
+{% elif subscribe_today.form_type == "formspark" %}
+<form action="{{subscribe_today.form_data}}" class="form-wrapper__form form subscribe-form">
+    <p>
+        <label>Name</label>
+        <input type="text" name="name" required placeholder="First Name"/>
+    </p>
+    <p>
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="Email Address"/>
+    </p>
+    <p>
+        <button type="submit">Subscribe</button>
+    </p>
+    <p>
+        <small>
+            {{subscribe_today.sub_caption}}
+        </small>
+    </p>
+</form>
+{% else %}
+{% endif %}
+

@@ -1,0 +1,12 @@
+label_cta: How Can I Support You?
+ctas:
+  - label: Executive Coach
+    url: /executive-coach/
+  - label: Thought Partner
+    url: /thought-partner/
+  - url: /advisory-board-service-offerings/
+    label: Advisory Board Services
+  - label: Meeting Facilitator
+    url: /meeting-facilitator/
+  - label: Keynote Speaker
+    url: /speaking/

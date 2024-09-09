@@ -1,0 +1,16 @@
+.music-share{
+	padding: 20px;
+	background-color: $black;
+	ul{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		li{
+			margin: 10px;
+			img{
+				width: 200px;
+			}
+		}
+
+	}
+}

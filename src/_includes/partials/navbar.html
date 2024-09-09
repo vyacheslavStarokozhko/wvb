@@ -1,0 +1,96 @@
+<nav class="navbar sticky">
+    <div class="full-container">
+        <div class="container align-center">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="{{header.header_logo}}" alt="">
+                </a>
+            </div>
+            <div class="social-container">
+                {% if header.socials %}
+                <ul class="social-menu">
+                    {% for social in header.socials %}
+                    <li class="social-item">
+                        <a href="{{ social.url }}">
+                            <i class="{{social.icon}}"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="menu-container">
+                {% if header.header_links[0] %}
+
+                <button class="menu-icon"><span></span></button>
+                <ul class='main-menu'>
+                    {% for link in header.header_links %}
+                    <li class="menu-item first-item {% if link.second_links %} has-submenu {% endif %}">
+                        <a href="{{ link.url }}"
+                           class="{% if page.url == link.url %} current-page {% endif %} menu-link menu-item {% if link.second_links[0] %} link-submenu {% endif %}">
+                            <span class="text">
+                                {{link.label}}
+                            {% if link.second_links[0] %}
+<span class="icon"></span>
+                                {% endif %}
+                            </span>
+                        </a>
+
+                        {% if link.second_links[0] %}
+                        <ul class="submenu second">
+                            {% for second_link in link.second_links %}
+                            <li class="menu-item submenu-item second-item {% if second_link.third_links %} has-submenu {% endif %}">
+                                <a href="{{second_link.url }}"
+                                   class="{% if page.url == second_link.url %} current-page {% endif %} menu-link {% if link.third_links[0] %} link-submenu {% endif %}">
+                                    <span class="text">{{second_link.label}}
+                                                                {% if second_link.third_links[0] %}
+<span class="icon"></span>
+                                {% endif %}
+                                    </span>
+                                </a>
+
+                                {% if second_link.third_links[0] %}
+                                <ul class="submenu third">
+                                    {% for third_link in second_link.third_links %}
+                                    <li class="menu-item submenu-item third-item {% if third_link.fourth_links %} has-submenu {% endif %}">
+                                        <a href="{{third_link.url }}"
+                                           class="{% if page.url == third_link.url %} current-page {% endif %} menu-link {% if link.fourth_links[0] %} link-submenu {% endif %}">
+                                            <span class="text">
+                                                                            {% if third_link.fourth_links[0] %}
+<span class="icon"></span>
+                                {% endif %}
+                                                {{third_link.label}}
+                                            </span>
+                                        </a>
+
+                                        {% if third_link.fourth_links[0] %}
+                                        <ul class="submenu fourth">
+                                            {% for fourth_link in third_link.fourth_links %}
+                                            <li class="menu-item submenu-item fourth-item ">
+                                                <a href="{{fourth_link.url }}"
+                                                   class="{% if page.url == fourth_link.url %} current-page {% endif %} menu-link">
+                                                    <span>{{fourth_link.label}}</span>
+                                                </a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endif %}
+
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

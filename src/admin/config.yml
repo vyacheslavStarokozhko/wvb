@@ -1,0 +1,436 @@
+backend:
+  # Use netlify identity as backend
+  name: git-gateway
+  branch: master
+  ### enable below lines for github integration ###
+  # name: github
+  # repo: surjithctly/neat-starter
+media_folder: "src/static/img"
+public_folder: "/static/img"
+
+# Please run "npx netlify-cms-proxy-server" for local backend
+local_backend: true
+# publish_mode: editorial_workflow
+collections:
+  - label: "Fonts"
+    name: "fonts"
+    editor:
+      preview: false
+    files:
+      - label: "Upload Fonts"
+        name: "upload_fonts"
+        file: "src/_data/upload_fonts.json"
+        fields:
+          - label: Fonts
+            name: _fonts
+            widget: list
+            allow_add: true
+            collapsed: true
+            required: false
+            fields:
+              - { label: Label, name: font_label, widget: string }
+              - { label: Style, name: font_style, widget: select,
+                  multiple: false,
+                  create: false,
+                  options: [ "normal", "italic" ] }
+              - { label: Weight, name: font_weight, widget: select,
+                  multiple: false,
+                  create: false,
+                  options: [ "100", "200", "300", "400", "500", "600", "700", "800", "900" ] }
+              - { label: Font, name: font_url, widget: file }
+  - label: "Site Settings"
+    name: "site_settings"
+    editor:
+      preview: false
+    files:
+      - label: "Meta Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Author, name: author, widget: string }
+          - { label: URL, name: url, widget: string }
+      - label: "Site Identity"
+        name: "site_identity"
+        file: "src/_data/site_identity.yaml"
+        fields:
+          - {label: "Fav Icon", name: "icon", widget: file}
+  - label: "Colors"
+    name: "colors"
+    editor:
+      preview: false
+    files:
+      - label: "Colors"
+        name: "color_styles"
+        file: "src/_data/styling/colors/colors.json"
+        fields:
+          - { label: Container Background, name: containerColor, widget: color , required: false }
+          - { label: Primary, name: primary, widget: color , required: false }
+          - { label: Accent, name: accent, widget: color , required: false }
+          - { label: Success, name: success, widget: color , required: false }
+          - { label: Warning, name: warning, widget: color , required: false }
+          - { label: Danger, name: danger, widget: color , required: false }
+          - { label: Socials Background, name: socialsBackground, widget: color , required: false }
+          - { label: SocialsColor, name: socialsColor, widget: color , required: false }
+  - label: "Sizing"
+    name: "sizing"
+    editor:
+      preview: false
+    files:
+      - label: "Sizing"
+        name: "sizing_styles"
+        file: "src/_data/styling/sizing/sizing.json"
+        fields:
+          - { label: Container Width, name: globalWidth, widget: number }
+          - { label: Container padding, name: containerPadding, widget: number }
+          - { label: Paragraph spacing, name: paragraphSpacing, widget: number }
+          - { label: Sidebar Width, name: sidebarWidth, widget: number , hint: "in %"}
+      - label: "Breakpoints"
+        name: "breakpoints"
+        file: "src/_data/styling/sizing/breakpoints.json"
+        fields:
+          - { label: Medium Breakpoint, name: mediumBreakpoint, widget: number }
+          - { label: Mobile Breakpoint, name: smallBreakpoint, widget: number }
+          - { label: Smaller Breakpoint, name: smallerBreakpoint, widget: number }
+  - label: "Typography"
+    name: "typography"
+    editor:
+      preview: false
+    files:
+      - label: "Body"
+        name: "body_text"
+        file: "src/_data/styling/typography/body.json"
+        fields:
+          - { label: "Font Size",name: "body_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "body_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "body_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "body_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "body_weight", widget: number, default: 400 }
+          - { label: "Line Height",name: "body_height", widget: string, default: "1.2" }
+          - { label: Body, name: body, widget: color , default: "#000" }
+      - label: "Link"
+        name: "link"
+        file: "src/_data/styling/typography/link.json"
+        fields:
+          - { label: "Font Size",name: "link_size", widget: number , default: 16 }
+          - { label: "Font Size (Medium)",name: "link_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "link_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "link_font", widget: string , default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "link_weight", widget: number , default: 400 }
+          - { label: "Line Height",name: "link_height", widget: string , default: "1.2" }
+          - { label: Link, name: link, widget: color , required: true , default: "#000" }
+          - { label: Link Hover, name: linkHover, widget: color , default: "#000" }
+      - label: "Button"
+        name: "button"
+        file: "src/_data/styling/typography/button.json"
+        fields:
+          - { label: "Font Size",name: "button_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "button_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "button_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "button_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "button_weight", widget: number, default: 400 }
+          - { label: "Line Height",name: "button_height", widget: string, default: "1.2" }
+          - { label: Button, name: button, widget: color , default: "#000" }
+          - { label: Link Hover, name: buttonHover, widget: color , default: "#000" }
+          - { label: Background, name: background, widget: color ,  default: "#000" }
+          - { label: Background Hover, name: backgroundHover, widget: color , default: "#000" }
+      - label: "h1"
+        name: "h1"
+        file: "src/_data/styling/typography/h1.json"
+        fields:
+          - { label: "Font Size",name: "h1_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "h1_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "h1_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h1_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h1_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h1_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h1_color", widget: color , default: "#000" }
+      - label: "h2"
+        name: "h2"
+        file: "src/_data/styling/typography/h2.json"
+        fields:
+          - { label: "Font Size",name: "h2_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "h2_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "h2_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h2_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h2_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h2_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h2_color", widget: color , default: "#000" }
+      - label: "h3"
+        name: "h3"
+        file: "src/_data/styling/typography/h3.json"
+        fields:
+          - { label: "Font Size",name: "h3_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "h3_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "h3_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h3_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h3_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h3_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h3_color", widget: color  , default: "#000" }
+      - label: "h4"
+        name: "h4"
+        file: "src/_data/styling/typography/h4.json"
+        fields:
+          - { label: "Font Size",name: "h4_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "h4_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "h4_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h4_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h4_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h4_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h4_color", widget: color  , default: "#000" }
+      - label: "h5"
+        name: "h5"
+        file: "src/_data/styling/typography/h5.json"
+        fields:
+          - { label: "Font Size",name: "h5_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "h5_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "h5_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h5_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h5_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h5_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h5_color", widget: color , default: "#000" }
+      - label: "h6"
+        name: "h6"
+        file: "src/_data/styling/typography/h6.json"
+        fields:
+          - { label: "Font Size",name: "h6_size", widget: number, default: 16 }
+          - { label: "Font Size (Medium)",name: "h6_medium_size", widget: number, default: 16 }
+          - { label: "Font Size (Small)",name: "h6_small_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h6_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h6_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h6_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h6_color", widget: color , default: "#000" }
+  - label: "Forms"
+    name: "forms"
+    editor:
+      preview: false
+    files:
+      - label: "Quick Update"
+        name: "quick_update"
+        file: "src/_data/quick_update.yaml"
+        fields:
+          - { label: "caption", name: "caption", widget: "markdown",required: false }
+          - { label: Form Logo, name: form_logo, widget: image }
+          - { label: Form Url, name: form_url, widget: string }
+          - { label: Type, name: form_type, required: false, widget: select,
+              multiple: false,
+              create: false,
+              options: [ "default", "custom", "formspark" ], default: "default" }
+          - { label: Form Data, name: form_data, widget: string }
+      - label: "Contact Us"
+        name: "contact_us"
+        file: "src/_data/contact_us.yaml"
+        fields:
+          - { label: "caption", name: "caption", widget: "markdown",required: false }
+          - { label: Type, name: form_type, required: false, widget: select,
+              multiple: false,
+              create: false,
+              options: [ "default", "custom", "formspark" ], default: "default" }
+          - { label: Form Data, name: form_data, widget: string }
+      - label: "Subscribe Today"
+        name: "subscribe_today"
+        file: "src/_data/subscribe_today.yaml"
+        fields:
+          - { label: "Caption", name: "caption", widget: "markdown",required: false }
+          - { label: "Sub Caption",name: "sub_caption", widget: "string", required: false }
+          - { label: Type, name: form_type, required: false, widget: select,
+              multiple: false,
+              create: false,
+              options: [ "default", "custom", "formspark" ], default: "default" }
+          - { label: Form Data, name: form_data, widget: string }
+      - label: "Subscribe Advisory"
+        name: "subscribe_advisory"
+        file: "src/_data/subscribe_advisory.yaml"
+        fields:
+          - { label: "Caption", name: "caption", widget: "markdown",required: false }
+          - { label: "Sub Caption",name: "sub_caption", widget: "string", required: false }
+          - { label: Type, name: form_type, required: false, widget: select,
+              multiple: false,
+              create: false,
+              options: [ "default", "custom", "formspark" ], default: "default" }
+          - { label: Form Data, name: form_data, widget: string }
+  - label: "Pages"
+    name: "pages"
+    folder: "src/pages"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: string }
+      - { label: "Permalink", name: "permalink", widget: string }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "markdown" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Body", name: "page_body", widget: "markdown" }
+      - { label: "Bottom", name: "bottom", widget: "markdown" ,required: false }
+      - { label: "Tabs Label", name: "tabs_label",widget: string  ,required: false }
+      - label: Tabs
+        name: tabs
+        widget: list
+        allow_add: true
+        collapsed: false
+        required: false
+        fields:
+          - { label: Label, name: tab_label, widget: string }
+          - { label: Description, name: tab_description, widget: "markdown" }
+  - label: "Podcasts"
+    name: "podcasts"
+    folder: "src/podcasts"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Icon", name: "icon", widget: "image" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "podcast_body", widget: "markdown" }
+      - { label: "Audio", name: "audio", widget: "file" }
+      - label: Category
+        name: podcast_category
+        widget: select
+        multiple: true
+        create: true
+        options: [ "Category 1", "Category 2" ]
+
+  - label: "Global"
+    name: "global"
+    editor:
+      preview: false
+    files:
+      - label: "Header"
+        name: "header"
+        file: "src/_data/header.yaml"
+        fields:
+          - { label: Logo, name: header_logo, widget: image }
+          - label: Socials
+            name: socials
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Url, name: url, widget: string }
+              - { label: Icon, name: icon, widget: string }
+          - label: Header Links
+            name: header_links
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+              - label: Second Links
+                name: second_links
+                widget: list
+                allow_add: true
+                collapsed: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Url, name: url, widget: string }
+                  - label: Third Links
+                    name: third_links
+                    widget: list
+                    allow_add: true
+                    collapsed: false
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - { label: Url, name: url, widget: string }
+                      - label: Fourth Links
+                        name: fourth_links
+                        widget: list
+                        allow_add: true
+                        collapsed: false
+                        fields:
+                          - { label: Label, name: label, widget: string }
+                          - { label: Url, name: url, widget: string }
+      - label: "Footer"
+        name: "footer"
+        file: "src/_data/footer.yaml"
+        fields:
+          - { label: Logo, name: footer_logo, widget: image }
+          - { label: Caption, name: footer_caption,description: '@year will be replaced by the current year', widget: string }
+          - label: Footer Links
+            name: footer_links
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+  - label: 'Home'
+    name: home
+    editor:
+      preview: false
+    files:
+      - label: "Hero"
+        name: "home_hero"
+        file: "src/_data/home_hero.yaml"
+        fields:
+          - { label: Title, name: text, widget: string }
+          - { label: Caption, name: caption, widget: markdown }
+          - { label: Image, name: image, widget: image }
+      - label: "CTA"
+        name: "home_cta"
+        file: "src/_data/home_cta.yaml"
+        fields:
+          - { label: Title, name: label_cta, widget: string }
+          - label: CTA Links
+            name: ctas
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+      - label: "Form"
+        name: "home_form"
+        file: "src/_data/home_form.yaml"
+        fields:
+          - label: Form Links
+            name: form_links
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+              - { label: Logo, name: form_link_logo, widget: image }
+      - label: "Bottom Banner"
+        name: "home_bottom_banner"
+        file: "src/_data/home_bottom_banner.yaml"
+        fields:
+          - { label: Caption, name: home_bottom_caption, widget: markdown }
+  - label: 'Templates'
+    name: "templates"
+    editor:
+      preview: false
+    files:
+      - label: "Music Share"
+        name: "music_share"
+        file: "src/_data/music_share.yaml"
+        fields:
+          - label: Share Links
+            name: share_links
+            widget: list
+            allow_add: true
+            collapsed: true
+            fields:
+              - { label: Icon, name: icon, widget: image }
+              - { label: Url, name: url, widget: string }
+  - label: 'Sidebar'
+    name: "sidebar"
+    editor:
+      preview: false
+    files:
+      - label: "Form"
+        name: "sidebar_form"
+        file: "src/_data/sidebar_form.yaml"
+        fields:
+          - label: Form
+            name: sidebar_form
+            widget: select
+            multiple: false
+            create: false
+            options: [ "Quick Update", "Subscribe Today" ]

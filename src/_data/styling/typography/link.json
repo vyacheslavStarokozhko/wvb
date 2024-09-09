@@ -1,0 +1,10 @@
+{
+  "link_size": 18,
+  "link_font": "ave,Open Sans,Arial,sans-serif",
+  "link_weight": 400,
+  "link_height": "1.6",
+  "link": "#ffc914",
+  "linkHover": "#00009e",
+  "link_medium_size": 16,
+  "link_small_size": 14
+}

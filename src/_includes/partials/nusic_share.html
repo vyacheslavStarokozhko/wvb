@@ -1,0 +1,15 @@
+{% if music_share.share_links %}
+<div class="music-share">
+    <div class="container jc-c">
+        <ul>
+            {% for item in music_share.share_links %}
+                <li>
+                    <a href="{{item.url}}">
+                        <img src="{{item.icon}}" alt="icon">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}

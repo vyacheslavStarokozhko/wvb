@@ -1,0 +1,65 @@
+---
+layout: default
+prism: true
+---
+
+<main class="podcast">
+    {% if icon %}
+    <div class="podcast-logo">
+        <div class="container  jc-c">
+            <img src="{{icon}}" alt="Logo">
+        </div>
+    </div>
+    {% endif %}
+    <div class="podcast-hero">
+        <div class="container jc-sb align-center">
+            <div class="podcast-hero__title">
+                <h1>{{title}}</h1>
+            </div>
+            <div class="podcast-hero__description">
+                <h4>{{description}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="podcast-content">
+        <div class="container">
+            <div class="podcast-main">
+                <strong class="date">{{date | readableDate}}</strong>
+
+                {% if audio %}
+                <div class="podcast-audio">
+                    <div>
+                        {% if thumbnail %}
+                        <img src="{{thumbnail}}" alt="alt">
+                        {% endif %}
+                    </div>
+                    <div class="audio">
+                        <h3>{{title}}</h3>
+                        <audio controls src="{{audio}}"></audio>
+                    </div>
+                </div>
+                {% endif %}
+                {% if podcast_body %}
+                <div class="podcast-body">
+                    <div class="markdown">
+                        {{podcast_body | text}}
+                    </div>
+                </div>
+                {% endif %}
+
+
+            </div>
+            <div class="podcast-form">
+                <a href="/podcast/" class="button">Back to All Episodes</a>
+                    {% if sidebar_form.sidebar_form == "Quick Update" %}
+                        {% include "./partials/forms/quick_update.html" %}
+                    {% endif %}
+                    {% if sidebar_form.sidebar_form == "Subscribe Today" %}
+                        {% include "./partials/forms/subscribe_today.html" %}
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include "./partials/nusic_share.html" %}
+</main>

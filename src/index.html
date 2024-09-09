@@ -1,0 +1,67 @@
+---
+layout: default
+title: Neat Starter
+path: home
+---
+
+<div class="hero">
+  <div class="container align-center">
+    <div class="hero__description">
+      <h1>
+        {{home_hero.text}}
+      </h1>
+      <div class="markdown">
+          {{home_hero.caption | text}}
+      </div>
+      
+    </div>
+    <div class="hero__image">
+      <img src="{{home_hero.image}}" alt="Tom">
+    </div>
+  </div>
+</div>
+<div class="cta">
+  <div class="container fdc">
+    <div class="cta__title">
+      <h2>{{home_cta.label_cta}}</h2>
+    </div>
+    {% if home_cta.ctas %}
+    <ul class="button-list">
+      {% for link in home_cta.ctas %}
+      <li class="button-item">
+        <a href="{{ link.url }}" class="button">{{ link.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+<div class="form-wrapper">
+  <div class="container jc-sb align-center">
+    {% if home_form.form_links %}
+    <ul class="form-wrapper__list gallery-list">
+      {% for link in home_form.form_links %}
+      <li class="gallery-item">
+        <h3>{{link.label}}</h3>
+        <a href="{{ link.url }}">
+          <img src="{{link.form_link_logo}}" alt="Image">
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="sidebar form-embeded">
+      {% include "./_includes/partials/forms/quick_update.html" %}
+    </div>
+  </div>
+</div>
+<div class="bottom-banner">
+  <div class="container jc-c">
+    <div class="bottom-banner__text">
+      <div class="markdown">
+          {{home_bottom_banner.home_bottom_caption | text}}
+      </div>
+      
+    </div>
+  </div>
+</div>

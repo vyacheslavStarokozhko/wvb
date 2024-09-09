@@ -1,0 +1,44 @@
+<!--default-->
+<!--code-->
+<!--formspark-->
+<div class="markdown">
+    {{quick_update.caption | text}}
+</div>
+{% if quick_update.form_type == "default" %}
+<!--update-->
+<form name="{{quick_update.form_data}}" data-netlify="true" method="POST" class="form-wrapper__form form">
+    <input type="hidden" name="subject"
+           value="New Quote Request"/>
+    <p>
+        <label>Name</label>
+        <input type="text" name="name" required placeholder="First Name"/>
+    </p>
+    <p>
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="Email Address"/>
+    </p>
+    <p>
+        <button type="submit">Send</button>
+    </p>
+</form>
+{% elif quick_update.form_type == "formspark" %}
+<form action="{{quick_update.form_data}}" class="form-wrapper__form form">
+    <p>
+        <label>Name</label>
+        <input type="text" name="name" required placeholder="First Name"/>
+    </p>
+    <p>
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="Email Address"/>
+    </p>
+    <p>
+        <button type="submit">Send</button>
+    </p>
+</form>
+{% else %}
+<script async data-uid="e76ec72d4d" src="https://tomadams.ck.page/e76ec72d4d/index.js"></script>
+{% endif %}
+
+<a href="{{quick_update.form_url}}">
+    <img src="{{quick_update.form_logo}}" alt="Form Logo">
+</a>
